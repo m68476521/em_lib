@@ -1,15 +1,25 @@
 package com.m68476521.mike.em_lib
 
+import com.m68476521.mike.em.EmManager
+import com.m68476521.mike.em.EmService
+import org.junit.Before
 import org.junit.Test
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
 class ExampleUnitTest {
+    private val url = ""
+    private val key = ""
+    private val hash = ""
+    private lateinit var emManager: EmManager
+
+    @Before
+    fun setupApi() {
+        val emService = EmService.create(url, key, hash)
+        emManager = EmManager(emService)
+    }
+
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun fetch20PublicCharacters() {
+        emManager.getPublicCharacters(20)
+            .test().assertNoErrors()
     }
 }
