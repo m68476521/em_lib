@@ -3,11 +3,9 @@ package com.m68476521.mike.em
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.m68476521.mike.em_lib.BuildConfig
-import io.reactivex.Observable
+import io.reactivex.Single
 import okhttp3.OkHttpClient
-import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -43,5 +41,5 @@ interface EmService {
     }
 
     @GET("v1/public/characters")
-    fun getPublicCharacters(@Query("limit") limit: Int): Observable<Response<ResponseBody>>
+    fun getPublicCharacters(@Query("limit") limit: Int): Single<Characters>
 }
