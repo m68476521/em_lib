@@ -3,7 +3,7 @@ package com.m68476521.mike.em
 import com.google.gson.annotations.SerializedName
 import java.util.Date
 
-data class Characters(
+data class Character(
     val code: Int,
     val status: String,
     val copyRight: String,

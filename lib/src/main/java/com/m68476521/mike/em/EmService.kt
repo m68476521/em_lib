@@ -10,6 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface EmService {
@@ -41,5 +42,8 @@ interface EmService {
     }
 
     @GET("v1/public/characters")
-    fun getPublicCharacters(@Query("limit") limit: Int): Single<Characters>
+    fun getPublicCharacters(@Query("limit") limit: Int): Single<Character>
+
+    @GET("v1/public/characters/{characterId}")
+    fun getCharacterById(@Path("characterId") limit: Int): Single<Character>
 }
