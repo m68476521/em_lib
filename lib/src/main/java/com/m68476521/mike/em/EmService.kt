@@ -46,4 +46,10 @@ interface EmService {
 
     @GET("v1/public/characters/{characterId}")
     fun getCharacterById(@Path("characterId") limit: Int): Single<Character>
+
+    @GET("v1/public/comics")
+    fun getComics(@Query("limit") limit: Int): Single<ComicWrapper>
+
+    @GET("v1/public/comics/{comicId}")
+    fun getComicsById(@Path("comicId") id: Int): Single<ComicWrapper>
 }

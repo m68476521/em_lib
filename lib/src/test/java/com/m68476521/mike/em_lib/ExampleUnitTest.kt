@@ -35,4 +35,20 @@ class ExampleUnitTest {
             .test()
             .assertNoErrors()
     }
+
+    @Test
+    fun fetchComics() {
+        val limit = 5
+        emManager.getComics(limit)
+            .test()
+            .assertNoErrors()
+    }
+
+    @Test
+    fun fetchComicById() {
+        val id = 16670
+        emManager.getComicById(id)
+            .test()
+            .assertNoErrors()
+    }
 }
